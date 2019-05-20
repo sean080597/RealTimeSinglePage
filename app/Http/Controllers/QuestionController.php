@@ -35,7 +35,7 @@ class QuestionController extends Controller
     {
         // auth()->user()->questions()->create($request->all());
         Question::create($request->all());
-        return response('Created question successfully', 201);
+        return response('Created question successfully', 201);// 201 = HTTP_CREATED
     }
 
     /**
@@ -47,7 +47,8 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return response('Updated question successfully', 202);// 202 = HTTP_ACCEPTED
     }
 
     /**
@@ -59,6 +60,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return response(null, 204);//HTTP_NO_CONTENT
+        return response(null, 204);// 204 = HTTP_NO_CONTENT
     }
 }
