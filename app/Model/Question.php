@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = [
-        'title', 'slug', 'body', 'category_id', 'user_id'
-    ];
+    protected $guarded = [];
 
     //param is slug now, not id
     public function getRouteKeyName()
